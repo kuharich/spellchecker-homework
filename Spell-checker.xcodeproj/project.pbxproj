@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4D55C9B923C71AD00001F62D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D55C9B823C71AD00001F62D /* main.swift */; };
-		4D55C9C023C71BDE0001F62D /* LineReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D55C9BF23C71BDE0001F62D /* LineReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,7 +25,6 @@
 /* Begin PBXFileReference section */
 		4D55C9B523C71AD00001F62D /* Spell-checker */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Spell-checker"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D55C9B823C71AD00001F62D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		4D55C9BF23C71BDE0001F62D /* LineReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +57,6 @@
 		4D55C9B723C71AD00001F62D /* Spell-checker */ = {
 			isa = PBXGroup;
 			children = (
-				4D55C9BF23C71BDE0001F62D /* LineReader.swift */,
 				4D55C9B823C71AD00001F62D /* main.swift */,
 			);
 			path = "Spell-checker";
@@ -123,7 +120,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D55C9C023C71BDE0001F62D /* LineReader.swift in Sources */,
 				4D55C9B923C71AD00001F62D /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

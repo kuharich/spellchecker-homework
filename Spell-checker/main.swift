@@ -8,57 +8,54 @@
 
 import Foundation
 
-var knownWords: [String:Int] = [:]
-var set = Set<Character>()
+var dictionary =  [String]()
 
-guard let reader = LineReader(path: "/Users/mark/Downloads/spellchecker-homework/words") else {
-    throw NSError(domain: "FileNotFound", code: 404, userInfo: nil)
+let url = URL.init(fileURLWithPath: "/Users/mark/Downloads/spellchecker-homework/words")
+do {
+    let text = try String(contentsOf: url, encoding: .utf8)
+    dictionary = text.split(separator: "\n").map{ $0.trimmingCharacters(in: .whitespacesAndNewlines)}
+} catch {
+    print(error)
 }
 
-for line in reader {
-    knownWords[line.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)] = 1
+func removeRepeatCharacters(from word: String) -> String {
+    var result = ""
+    var previous: Character = " "
+    for c in word {
+        if previous.lowercased() != c.lowercased() {
+            result += String(c)
+        }
+        previous = c
+    }
+    return result
 }
 
-extension String {
-    func capitalizingFirstLetter() -> String {
-        return prefix(1).capitalized + dropFirst()
+func checkWord(_ word: String) -> String {
+    if dictionary.contains(word) {
+        return word
     }
-
-    mutating func capitalizeFirstLetter() {
-        self = self.capitalizingFirstLetter()
+    for correctWord in dictionary {
+        if correctWord.lowercased() == word.lowercased() {
+            return correctWord
+        }
+        if removeRepeatCharacters(from: correctWord).lowercased() == removeRepeatCharacters(from: word).lowercased() {
+            return correctWord
+        }
     }
-}
-
-extension RangeReplaceableCollection where Element: Hashable {
-    var squeezed: Self {
-        var set = Set<Element>()
-        return filter{ set.insert($0).inserted }
-    }
-}
-
-func checkWord(wordToCheck: String) -> String {
-    if knownWords[wordToCheck] as Int? == 1 {
-        return wordToCheck
-    } else if knownWords[wordToCheck.lowercased().capitalizingFirstLetter()] as Int? == 1 {
-        return wordToCheck.lowercased().capitalizingFirstLetter()
-    } else if knownWords[wordToCheck.squeezed]as Int? == 1 {
-        return wordToCheck.squeezed
-    } else {
-        return "No Correction Found"
-    }
+    return "No Correction Found"
 }
 
 /* It will correct two kinds of errors on the incoming word and then return the corrected word:
     It fixes bad casing */
-print(checkWord(wordToCheck: "wetumpka"))
-print(checkWord(wordToCheck: "paRNAssus"))
+print(checkWord("wetumpka"))
+print(checkWord("paRNAssus"))
 
     // It removes invalid repeating characters
-print(checkWord(wordToCheck: "tabble"))
-print(checkWord(wordToCheck: "rrreally"))
+print(checkWord("tabble"))
+print(checkWord("rrreally"))
 
 // If the incoming word is already correct, the function should return the original word.
-print(checkWord(wordToCheck: "aalii"))
+print(checkWord("aalii"))
 
 /* If the incoming word is not correct and no correction can be found, the function should return the string “No Correction Found" */
-print(checkWord(wordToCheck: "Lorem"))
+print(checkWord("Lorem"))
