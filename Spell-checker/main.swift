@@ -15,7 +15,7 @@ do {
     let text = try String(contentsOf: url, encoding: .utf8)
     dictionary = text.split(separator: "\n").map{ $0.trimmingCharacters(in: .whitespacesAndNewlines)}
 } catch {
-    print(error)
+    print("Unexpected error: \(error).")
 }
 
 func removeRepeatCharacters(from word: String) -> String {
