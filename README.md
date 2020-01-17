@@ -6,7 +6,7 @@ To complete the new spell-checking software, we need you to create its brain. Th
 Requirements
 Using a language of your choice, write a function that implements the following pseudo-code signature:
 
-String checkWord( String wordToCheck )
+<pre><code>String checkWord( String wordToCheck )</code></pre>
 
 The function should behave as follows:
 
