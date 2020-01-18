@@ -1,6 +1,6 @@
 # spellchecker-homework
 
-To complete the new spell-checking software, we need you to create its brain. The requirements for this version are listed below.
+To complete the new spell-checking software, your task is to create its brain. The requirements for this version are listed below.
 
 ## Requirements
 Using Swift, write a function that implements the following pseudo-code signature:
