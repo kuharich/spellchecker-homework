@@ -3,7 +3,7 @@ Spell-checker
 
 To complete the new spell-checking software, we need you to create its brain. The requirements for this version are listed below. If you have any questions about any part of the task, please let us know.
 
-Requirements
+**Requirements**
 Using a language of your choice, write a function that implements the following pseudo-code signature:
 
 <pre><code>String checkWord( String wordToCheck )</code></pre>
