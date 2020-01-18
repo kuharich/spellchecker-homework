@@ -3,7 +3,7 @@
 To complete the new spell-checking software, we need you to create its brain. The requirements for this version are listed below.
 
 ## Requirements
-Using a language of your choice, write a function that implements the following pseudo-code signature:
+Using Swift, write a function that implements the following pseudo-code signature:
 
 <pre><code>String checkWord( String wordToCheck )</code></pre>
 
