@@ -18,4 +18,5 @@ The function should behave as follows:
     - “rrreally” → “really”
 - If the incoming word is already correct, the function should return the original word.
 - If the incoming word is not correct and no correction can be found, the function should return the string “No Correction Found”.
+
 The list of correct word spellings are in the dictionary file that is in this repo. (Uncompress the file before using it.) You don't need to perform corrections on any words not in this dictionary.
